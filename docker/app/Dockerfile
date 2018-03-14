@@ -6,6 +6,7 @@ RUN apk add --no-cache \
 		git
 
 ARG APCU_VERSION=5.1.11
+ARG XDEBUG_VERSION=2.6.0
 RUN set -xe \
 	&& apk add --no-cache --virtual .build-deps \
 		$PHPIZE_DEPS \
@@ -18,8 +19,10 @@ RUN set -xe \
 		zip \
 	&& pecl install \
 		apcu-${APCU_VERSION} \
+		xdebug-${XDEBUG_VERSION} \
 	&& docker-php-ext-enable --ini-name 20-apcu.ini apcu \
 	&& docker-php-ext-enable --ini-name 05-opcache.ini opcache \
+	&& docker-php-ext-enable xdebug \
 	&& runDeps="$( \
 		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
 			| tr ',' '\n' \

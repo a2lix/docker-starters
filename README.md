@@ -1,6 +1,6 @@
-# Docker Starter 1 (PHP7.2 / Postgres10.3)
+# Docker Starter - DEV1 (PHP7.2 & Xdebug2.6 / Postgres10.3)
 
-A simple Docker starter for Symfony with its PHP built-in webserver use.
+A simple Docker starter for Symfony with its PHP built-in webserver.
 
 ---
 
