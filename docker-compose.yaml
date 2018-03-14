@@ -20,7 +20,7 @@ services:
 
   db:
     image: postgres:10-alpine
-    # restart: always
+    restart: always
     environment:
       POSTGRES_DB: a2lix_demo
       POSTGRES_USER: a2lix
@@ -34,7 +34,7 @@ services:
 
   adminer:
     image: adminer:latest
-    # restart: always
+    restart: always
     depends_on:
       - db
     ports:
