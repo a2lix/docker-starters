@@ -8,11 +8,8 @@ services:
       DATABASE_URL: pgsql://a2lix:p4ssw0rd@db:5432/a2lix_demo
     volumes:
       - ./app:/srv/app:rw,cached
-      # If you develop on Linux, comment out the following volumes to just use bind-mounted project directory from host
-      # - /srv/app/var/
-      # - /srv/app/var/cache/
-      # - /srv/app/var/logs/
-      # - /srv/app/var/sessions/
+      # If you develop on Linux, uncomment the following line to use a bind-mounted host directory instead
+      # - ./app/var:/srv/app/var:rw
     depends_on:
       - db
     ports:
